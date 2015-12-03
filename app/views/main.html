@@ -1,23 +1,43 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="row" ng-show="!loading">
+    <p>
+        Choose your location please:
+    </p>
+    <div class="col-xs-6 text-center" ng-repeat="location in locations">
+        <button class="text-capitalize btn btn-primary btn-block" ng-click="chooseLocation(location)">
+            {{location}}
+        </button>
+    </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="row action" ng-show="location">
+    <div class="col-xs-6 text-center">
+        <button class="btn btn-primary btn-block" ng-click="chooseOrderType('start')">
+            Who wants coffee?
+        </button>
+    </div>
+    <div class="col-xs-6 text-center">
+        <button class="btn btn-primary btn-block" ng-click="chooseOrderType('add')">
+            I want coffee!
+        </button>
+    </div>
+</div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+<div class="row" ng-show="orderType">
+    <div class="progress" ng-hide="menu">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+        <span class="sr-only">100% Complete</span>
+      </div>
+    </div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    <menu ng-show="menu" model="menu" item="item">
+
+    </menu>
+</div>
+
+<div class="row" ng-show="item.name">
+    <div class="col-xs-6 text-center">
+        <button class="text-capitalize btn btn-primary btn-block" ng-click="createOrder()">
+            Create Order
+        </button>
+    </div>
 </div>
