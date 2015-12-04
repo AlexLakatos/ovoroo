@@ -1,26 +1,48 @@
-<div class="row">
-    <div class="col-md-3 col-xs-6" ng-repeat="product in model.products">
-        <p>
-            {{product.name}}
-        </p>
-
+<div class="row drinks">
+    <div class="col-md-6 col-xs-12">
         <div class="row">
-            <button class="col-xs-4" ng-repeat="size in product.sizes" ng-click="selectProduct(product, size)">
-                {{size.name}} <br> {{size.price}}£
+            <h2 class="col-md-6">
+                DRINKS
+            </h2>
+            <img src="images/SMALL.png" alt="" />
+            <img src="images/REGULAR.png" alt="" />
+            <img src="images/LARGE.png" alt="" />
+        </div>
+    </div>
+</div>
+<div class="row drinks-menu" ng-repeat="product in model.products">
+    <div class="col-md-6 col-xs-12">
+        <div class="row">
+            <p class="col-md-6">
+                {{product.name}}
+            </p>
+            <button class="btn" ng-class="{'btn-primary': product.name == item.name && size.name == item.size.name}" ng-repeat="size in product.sizes" ng-click="selectProduct(product, size)">
+            £{{size.price}}
             </button>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-3 col-xs-6" ng-repeat="special in model.specials">
-        <p>
-            {{special.name}}
-        </p>
-
+<div class="row drinks">
+    <div class="col-md-6 col-xs-12">
         <div class="row">
-            <button class="col-xs-4" ng-repeat="size in special.sizes" ng-click="selectProduct(special, size)">
-                {{size.name}} <br> {{size.price}}£
+            <h2 class="col-md-6">
+                FESTIVE DRINKS
+            </h2>
+            <img src="images/SMALL.png" alt="" />
+            <img src="images/REGULAR.png" alt="" />
+            <img src="images/LARGE.png" alt="" />
+        </div>
+    </div>
+</div>
+<div class="row drinks-menu" ng-repeat="special in model.specials">
+    <div class="col-md-6 col-xs-12">
+        <div class="row">
+            <p class="col-md-6">
+                {{special.name}}
+            </p>
+            <button class="btn" ng-class="{'btn-primary': special.name == item.name && size.name == item.size.name}" ng-repeat="size in special.sizes" ng-click="selectProduct(special, size)">
+            £{{size.price}}
             </button>
         </div>
     </div>

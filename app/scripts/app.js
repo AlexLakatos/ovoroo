@@ -39,7 +39,7 @@ angular
       });
   })
   .constant("locations", ["london", "bristol"])
-  .run(function($rootScope, LoginService) {
+  .run(function($rootScope, LoginService, $location) {
     $rootScope.showLogin = function () {
         $rootScope.showingLogin = true;
     };
@@ -54,6 +54,8 @@ angular
           function successCallback(response) {
               $rootScope.user = response.data.user;
               $rootScope.loggedIn = true;
+
+              $location.path("/");
           },
           function errorCallback(response) {
             console.log(response);

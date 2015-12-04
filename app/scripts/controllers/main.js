@@ -15,6 +15,10 @@ angular.module('ovorooApp')
       $scope.location = "";
       $rootScope.page = "main";
 
+      if (!$rootScope.user) {
+          //$location.path("/landing");
+      }
+
       $scope.item = {};
 
       $scope.loading = true;
@@ -25,6 +29,9 @@ angular.module('ovorooApp')
       };
 
       $scope.loading = false;
+
+      $scope.location = "london";
+      $scope.chooseOrderType("start");
 
   }
 
