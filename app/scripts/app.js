@@ -38,4 +38,25 @@ angular
         redirectTo: '/landing'
       });
   })
-  .constant("locations", ["london", "bristol"]);
+  .constant("locations", ["london", "bristol"])
+  .run(function($rootScope, LoginService) {
+    $rootScope.showLogin = function () {
+        $rootScope.showingLogin = true;
+    };
+
+    $rootScope.login = function (aUsername, aPassword) {
+        var login = {
+            username: aUsername,
+            password: aPassword
+        };
+
+        LoginService.postLogin(login).then(
+          function successCallback(response) {
+              $rootScope.user = response.data.user;
+              $rootScope.loggedIn = true;
+          },
+          function errorCallback(response) {
+            console.log(response);
+          });
+    };
+  });

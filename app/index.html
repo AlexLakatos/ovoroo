@@ -35,13 +35,25 @@
           </button>
 
           <a class="navbar-brand" href="#/">COFFEERUN</a>
+          <div ng-hide="loggedIn">
+              <div class="login" ng-hide="showingLogin">
+                  <button class="btn btn-primary login" ng-click="showLogin()">Login</button>
+              </div>
+              <div class="login" ng-show="showingLogin">
+                  <input type="text" name="username" value="" ng-model="username">
+                  <input type="password" name="name" value="" ng-model="password">
+                  <button class="btn btn-primary login" ng-click="login(username, password)">Login</button>
+              </div>
+          </div>
+
+          <div class="username" ng-show="loggedIn">
+              Hi {{user.name}}
+          </div>
+
         </div>
 
         <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-          <ul class="nav navbar-nav">
-
-          </ul>
         </div>
       </div>
     </div>
@@ -53,7 +65,7 @@
 
 
   <div class="footer text-center text-uppercase">
-      <p>Made with 
+      <p>Made with
         <span class="glyphicon glyphicon-heart"></span> by the gang responsible for thai friday
     <br> &copy; 2015</p>
   </div>
@@ -97,6 +109,7 @@
 
   <script src="scripts/services/menu-service.js"></script>
   <script src="scripts/services/order-service.js"></script>
+  <script src="scripts/services/login-service.js"></script>
 </body>
 
 </html>
