@@ -2,18 +2,18 @@
 
 /**
  * @ngdoc function
- * @name ovorooApp.controller:MainCtrl
+ * @name ovorooApp.controller:LandingCtrl
  * @description
- * # MainCtrl
+ * # LandingCtrl
  * Controller of the ovorooApp
  */
 angular.module('ovorooApp')
-  .controller('MainCtrl', function(MenuService, OrderService, locations, $scope, $location, $rootScope) {
+  .controller('LandingCtrl', function(MenuService, OrderService, locations, $scope, $location, $rootScope) {
 
     function load() {
       $scope.locations = locations;
       $scope.location = "";
-      $rootScope.page = "main";
+      $rootScope.page = "landing";
 
       $scope.item = {};
 

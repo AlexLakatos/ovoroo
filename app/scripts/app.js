@@ -24,13 +24,18 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/order/:id', {
+        templateUrl: 'views/order.html',
+        controller: 'OrderCtrl',
+        controllerAs: 'order'
+      })
+      .when('/landing', {
+        templateUrl: 'views/landing.html',
+        controller: 'LandingCtrl',
+        controllerAs: 'landing'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/landing'
       });
   })
   .constant("locations", ["london", "bristol"]);

@@ -14,6 +14,19 @@
       );
     };
 
+    OrderService.getOrder = function(aOrderId) {
+      return $http.get(
+          OrderService.api + "/orders/" + aOrderId
+      );
+    };
+
+    OrderService.putOrder = function(aOrder) {
+      return $http.put(
+          OrderService.api + "/orders/" + aOrder.id,
+          aOrder
+      );
+    };
+
     return OrderService;
   }
 
