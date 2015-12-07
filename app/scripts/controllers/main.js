@@ -16,17 +16,13 @@ angular.module('ovorooApp')
       $rootScope.page = "main";
 
       if (!$rootScope.user) {
-          //$location.path("/landing");
+
+          $location.path("/landing");
       }
 
       $scope.item = {};
 
       $scope.loading = true;
-
-      $scope.user = {
-          name: "Alex",
-          email: "alex@alex.com"
-      };
 
       $scope.loading = false;
 
@@ -53,9 +49,10 @@ angular.module('ovorooApp')
     };
 
     $scope.createOrder = function createOrder() {
-        $scope.item.requester = $scope.user;
+        $scope.item.requester = $rootScope.user;
 
         var order = {
+            "owner": $rootScope.user,
             "location": $scope.location,
             "products": [$scope.item]
         };

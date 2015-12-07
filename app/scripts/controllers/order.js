@@ -16,11 +16,6 @@ angular.module('ovorooApp')
       $scope.loading = true;
       $rootScope.page = "order";
 
-      $scope.user = {
-          name: "Alex",
-          email: "alex@alex.com"
-      };
-
       OrderService.getOrder($route.current.params.id).then(
         function successCallback(response) {
             console.log(response);
@@ -54,15 +49,10 @@ angular.module('ovorooApp')
         });
   }
 
-    $scope.createOrder = function createOrder() {
-        $scope.item.requester = $scope.user;
+    $scope.addToOrder = function addToOrder() {
+        $scope.item.requester = $rootScope.user;
 
-        var order = {
-            "location": $scope.location,
-            "products": [$scope.item]
-        };
-
-        OrderService.putOrder(order).then(
+        OrderService.putOrder($route.current.params.id, $scope.item).then(
           function successCallback(response) {
               console.log(response);
           },

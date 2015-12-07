@@ -24,10 +24,12 @@ angular.module('ovorooApp')
               };
           };
 
-          scope.selectExtra = function selectExtra(aExtra) {
+          scope.selectExtra = function selectExtra(aExtra, aEvent) {
               if (!scope.item.extras) {
                   scope.item.extras = [];
               }
+
+              aEvent.currentTarget.classList.add("btn-primary");
 
               aExtra.price = parseFloat(aExtra.price);
 

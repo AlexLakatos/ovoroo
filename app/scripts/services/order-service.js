@@ -20,10 +20,10 @@
       );
     };
 
-    OrderService.putOrder = function(aOrder) {
+    OrderService.putOrder = function(aOrderId, aItem) {
       return $http.put(
-          OrderService.api + "/orders/" + aOrder.id,
-          aOrder
+          OrderService.api + "/orders/" + aOrderId + "/items",
+          aItem
       );
     };
 
